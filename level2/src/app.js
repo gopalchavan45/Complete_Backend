@@ -36,3 +36,6 @@ app.patch("/notes/:index",(req,res)=>{
 })
 
 export default app; //here we export the app to use in server.js file
+
+//113.193.26.202/32  //snjdb6fQpz6RYhro
+// mongodb+srv://Completed-backend:snjdb6fQpz6RYhro@complete-backend.cb2jbhl.mongodb.net/
