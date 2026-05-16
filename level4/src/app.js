@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import uploadImage from "./services/storage.service.js";
+import postModel from "./models/post.model.js";
 const app = express();
 
 const upload = multer({
@@ -19,6 +20,14 @@ app.post("/create-post", upload.single("image"), async (req, res) => {
         body: req.body,
         file: req.file,
         imageUrl: imageUrl
+    });
+    const post = await postModel.create({
+        image: imageUrl,
+        caption: req.body.caption
+    }); 
+    res.status(200).json({
+        message: "Post created successfully",
+        post: post
     });
 });
 
